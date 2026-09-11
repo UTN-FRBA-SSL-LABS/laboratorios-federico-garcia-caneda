@@ -4,8 +4,8 @@ PROGRAMA := calc3
 # Compilador
 CC := gcc
 
-BISON := C:/msys64/usr/bin/bison.exe
-FLEX := C:/msys64/usr/bin/flex.exe
+##BISON := C:/msys64/usr/bin/bison.exe
+##FLEX := C:/msys64/usr/bin/flex.exe
 
 # Regla principal
 all: $(PROGRAMA)
@@ -14,8 +14,8 @@ all: $(PROGRAMA)
 # Bison genera: parser3.tab.c y parser3.tab.h
 # Flex genera:  lex.yy.c
 $(PROGRAMA): parser3.y scanner3.l
-	$(BISON) -d parser3.y
-	$(FLEX) scanner3.l
+	bison -d parser3.y
+	flex scanner3.l
 	$(CC) lex.yy.c parser3.tab.c -o $(PROGRAMA)
 # Regla para limpiar todos los archivos generados
 clean:
