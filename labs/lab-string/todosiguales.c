@@ -12,7 +12,21 @@
  */
 
 int main(int argc, char *argv[]) {
-    (void)argc; (void)argv;
-    /* TODO */
-    return 0;
+    (void)argc;
+    if (argc < 2) {
+        printf("0\n");
+        return 0;
+    }
+    char *primer = argv[1];
+    char **arg = argv + 2;
+    while (*arg != NULL){
+        if (AreEqual(*arg, primer)){
+            arg++;
+        } else {
+            printf("0\n");
+            return 0;
+        }
+    }
+        printf("1\n");
+    return 1;
 }
